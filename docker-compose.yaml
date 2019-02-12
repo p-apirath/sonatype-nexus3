@@ -1,0 +1,15 @@
+version: '3'
+
+volumes:
+  nexus3-data:
+    driver: local
+
+services:
+  nexus3:
+    image: sonatype/nexus3:3.15.2
+    volumes:
+      # - "${PWD}/sonatype/nexus-data:/nexus-data"
+      - "nexus3-data:/nexus-data"
+    ports:
+      - "58081-58083:8081-8083"
+    restart: always
